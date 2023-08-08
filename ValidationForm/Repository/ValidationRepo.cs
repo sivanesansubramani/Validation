@@ -71,5 +71,75 @@ namespace ValidationForm.Repository
         }
 
 
+        public ValidationModel SelectValidationID(int id)
+        {
+            try
+            {
+
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+                var res = connection.QueryFirst<ValidationModel>($"exec selectsvalidationID {id}");
+                connection.Close();
+
+                return res;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void ubdateValidation(ValidationModel info)
+        {
+            try
+            {
+                SqlConnection connectionObject = new SqlConnection(connectionString);
+
+
+
+                connectionObject.Open();
+
+                connectionObject.Execute($"  exec UbdateValidation ''{info.Name}', '{info.Lastname}',{info.Email}, {info.Pnone},'{info.id}' ");
+
+
+                connectionObject.Close();
+            }
+            catch (SqlException e)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
+        public void deletevalidation(int id)
+        {
+            try
+            {
+                SqlConnection connectionObject = new SqlConnection(connectionString);
+
+                connectionObject.Open();
+                connectionObject.Execute($"exec DeleteValidation {id} ");
+
+
+                connectionObject.Close();
+            }
+            catch (SqlException e)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
     }
 }

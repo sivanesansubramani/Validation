@@ -12,7 +12,7 @@ select * from Validation
 insert into Validation(Name,Lastname,Email,Pnone) values ('kvm','kuppusamy','temple@gmail.com',12345678)
 
 -- insert records into stubio 
-create or alter procedure insertvalidation(@Name nvarchar(100),@Lastname nvarchar(100),@Email nvarchar(100),@Phone int)
+create or alter procedure InsertValidation(@Name nvarchar(100),@Lastname nvarchar(100),@Email nvarchar(100),@Phone int)
 as
 begin
 
@@ -20,10 +20,10 @@ insert into Validation(Name,Lastname,Email,Pnone) values (@Name,@Lastname,@Email
 
 end
 
-exec insertvalidation 'kvm','kuppusamy','temple@gmail.com',12345678
+exec InsertValidation 'kvm','kuppusamy','temple@gmail.com',12345678
 
 -------select sp
-create or alter procedure selectvalidation
+create or alter procedure SelectValidation
 as
 begin
 
@@ -31,11 +31,11 @@ begin
 
 end
 
-exec selectvalidation
+exec SelectValidation
 
 
 -------select sp with id
-create or alter procedure selectschooldetailsWithId(@ID int)
+create or alter procedure selectsvalidationID(@ID int)
 as
 begin
 
@@ -43,10 +43,10 @@ begin
 
 end
 
-exec selectschooldetailsWithId 3
+exec selectsvalidationID 3
 
 --ubdate store procedure
-create or alter procedure ubdatevalidation (@ID int,@Name nvarchar(100),@Lastname nvarchar(100),@Email nvarchar(100),@Phone int)
+create or alter procedure UbdateValidation (@ID int,@Name nvarchar(100),@Lastname nvarchar(100),@Email nvarchar(100),@Phone int)
 as
 begin
 
@@ -54,11 +54,11 @@ begin
 
 end
 
-exec ubdatevalidation 3,'kvm2','kuppusamy2','temple2@gmail.com',123000
+exec UbdateValidation 3,'kvm2','kuppusamy2','temple2@gmail.com',123000
 
 
 --delete
-create or alter procedure deleteValidation(@id int)
+create or alter procedure DeleteValidation(@id int)
 as
 begin
 
@@ -66,4 +66,4 @@ begin
 
 end
 
-exec deleteValidation 2
+exec DeleteValidation 2
